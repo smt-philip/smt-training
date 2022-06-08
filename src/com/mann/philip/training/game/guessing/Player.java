@@ -16,16 +16,15 @@ import java.util.Scanner;
 *******************************************************************************/
 
 public class Player {
-	int playerGuess = 0;
 	/**
 	 * @returns an int captured via input from the terminal
-	 * 
+	 * @SuppressWarnings("resource"): 
+	 * https://stackoverflow.com/questions/12519335/resource-leak-in-is-never-closed
 	 */
 	public int getGuess() {
+		@SuppressWarnings("resource")
 		Scanner promptGuess = new Scanner(System.in);
-		System.out.println("Guess a number between 0 and 100");
-		int guess = promptGuess.nextInt();
-		promptGuess.close();
-		return guess;
+		System.out.println("Guess a number between 0 and 10");
+		return promptGuess.nextInt();
 	}
 }

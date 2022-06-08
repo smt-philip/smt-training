@@ -14,10 +14,29 @@ package com.mann.philip.training.game.guessing;
 *******************************************************************************/
 
 public class GuessingGame {
+	
+	int rightNum = (int) (Math.random() * 10);
+	boolean isGuessRight = false;
+	Player player = new Player();
+	int howManyTrys = 0;
+	/**
+	 * creates a loop while isGuessRight == false
+	 * keeps track of how many trys to win
+	 * once isGuessRight == true, game ends.
+	 */
 	public void startGame() {
-		System.out.println("game starting...");
-		Player player = new Player();
-		int guess = player.getGuess();
-		System.out.println("player has guessed: " + guess);
+		while (!isGuessRight) {
+			int guess = player.getGuess();
+			if (guess == rightNum) {
+				isGuessRight = true;
+				System.out.println("Winner Winner, Chicken Dinner");
+				System.out.println("Your answer: " + guess + ", took this many tries: " + howManyTrys);
+				System.out.println("Correct answer: " + rightNum);
+			} else {
+				howManyTrys++;
+				System.out.println("You have guessed wrong!");
+				System.out.println("Try again.");
+			}
+		}
 	}
 }
