@@ -1,4 +1,4 @@
-package com.mann.philip.training.headfirst.chapter1.guessingGame;
+package com.mann.philip.training.headFirstJava.chapter1.guessingGame;
 public class GuessGame {
 	
 	// created three instance variables for the three player objects

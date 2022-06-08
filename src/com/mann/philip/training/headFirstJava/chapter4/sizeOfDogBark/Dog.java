@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.headfirst.chapter4.sizeOfDogBark;
+package com.mann.philip.training.headFirstJava.chapter4.sizeOfDogBark;
 
 /*******************************************************************************
 *<b>Title:</b> Dog.java

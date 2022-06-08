@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.introToProgramming2.arrayExcercise;
+package com.mann.philip.training.introToProgramming.two.homework;
 
 /*******************************************************************************
 *<b>Title:</b> ArrayExcercise.java

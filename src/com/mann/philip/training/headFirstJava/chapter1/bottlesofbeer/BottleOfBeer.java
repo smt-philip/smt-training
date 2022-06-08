@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.headfirst.chapter1.bottlesofbeer;
+package com.mann.philip.training.headFirstJava.chapter1.bottlesofbeer;
 
 /*******************************************************************************
 *<b>Title:</b> BottleOfBeer.java

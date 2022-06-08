@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.introToProgramming.exercise.one;
+package com.mann.philip.training.introToProgramming.one.homework;
 
 /*******************************************************************************
 *<b>Title:</b> ExerciseOne.java

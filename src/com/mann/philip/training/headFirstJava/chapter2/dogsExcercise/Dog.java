@@ -1,4 +1,4 @@
-package com.mann.philip.training.headfirst.chapter2.dogsExcercise;
+package com.mann.philip.training.headFirstJava.chapter2.dogsExcercise;
 
 public class Dog {
 	

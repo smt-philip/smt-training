@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.headfirst.chapter1.phrasomatic;
+package com.mann.philip.training.headFirstJava.chapter1.phrasomatic;
 
 /*******************************************************************************
 *<b>Title:</b> PhraseOMatic.java

@@ -1,4 +1,4 @@
-package com.mann.philip.training.headfirstjava.chapter3.islandArraysExercise;
+package com.mann.philip.training.headFirstJava.chapter3.islandArraysExercise;
 
 public class TestArrays {
 	
