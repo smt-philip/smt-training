@@ -18,7 +18,6 @@ public class GuessingGame {
 	int rightNum = (int) (Math.random() * 10);
 	boolean isGuessRight = false;
 	Player player = new Player();
-	int howManyTrys = 0;
 	/**
 	 * creates a loop while isGuessRight == false
 	 * keeps track of how many trys to win
@@ -30,12 +29,11 @@ public class GuessingGame {
 			if (guess == rightNum) {
 				isGuessRight = true;
 				System.out.println("Winner Winner, Chicken Dinner");
-				System.out.println("Your answer: " + guess + ", took this many tries: " + howManyTrys);
+				System.out.println("Your answer: " + guess + ", took this many tries: " + player.howManyTrys);
 				System.out.println("Correct answer: " + rightNum);
 			} else {
-				howManyTrys++;
-				System.out.println("You have guessed wrong!");
-				System.out.println("Try again.");
+				System.out.println("You have guessed wrong, try again!");
+				System.out.println("Number of attempts: " + player.howManyTrys);
 			}
 		}
 	}

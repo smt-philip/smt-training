@@ -16,6 +16,7 @@ import java.util.Scanner;
 *******************************************************************************/
 
 public class Player {
+	int howManyTrys = 0;
 	/**
 	 * @returns an int captured via input from the terminal
 	 * @SuppressWarnings("resource"): 
@@ -25,6 +26,7 @@ public class Player {
 		@SuppressWarnings("resource")
 		Scanner promptGuess = new Scanner(System.in);
 		System.out.println("Guess a number between 0 and 10");
+		howManyTrys++;
 		return promptGuess.nextInt();
 	}
 }

@@ -24,3 +24,15 @@ public class GameLauncher {
 		game.startGame();
 	}
 }
+
+/*******************************************************************************
+ * 					TTTTTTTTT    OOOOOO    DDDDDDD    OOOOOO
+ * 					TTTTTTTTT   OOOOOOOO   DDDDDDD   OOOOOOOO
+ *				       TTT	    OO    OO   DD   DD	 OO    OO
+ *					   TTT      OO    OO   DD   DD   OO    OO
+ *				       TTT      OOOOOOOO   DDDDDDD   OOOOOOOO
+ *                     TTT       OOOOOO    DDDDDDD    OOOOOO
+ *******************************************************************************
+ *
+ *  move howManyTrys into Player and increment in getGuess
+ */
