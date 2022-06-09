@@ -35,6 +35,9 @@ public class Player {
 		return promptGuess.nextInt();
 	}
 	
+	/**
+	 * 
+	 */
 	public void getLanguage() {
 		@SuppressWarnings("resource")
 		Scanner promptLanguage = new Scanner(System.in);
