@@ -17,6 +17,7 @@ import java.util.Scanner;
 
 public class Player {
 	int howManyTrys = 0;
+	boolean isEnglish = true;
 	/**
 	 * @returns an int captured via input from the terminal
 	 * @SuppressWarnings("resource"): 
@@ -25,8 +26,19 @@ public class Player {
 	public int getGuess() {
 		@SuppressWarnings("resource")
 		Scanner promptGuess = new Scanner(System.in);
-		System.out.println("Guess a number between 0 and 10");
+		if (isEnglish) {
+			System.out.println("Guess a number between 0 and 10");			
+		} else {
+			System.out.println("Adivina un número entre 0 y 10");
+		}
 		howManyTrys++;
 		return promptGuess.nextInt();
+	}
+	
+	public void getLanguage() {
+		@SuppressWarnings("resource")
+		Scanner promptLanguage = new Scanner(System.in);
+		System.out.println("Enter <en> for English || Ingrese <sp> para español");
+		if ("sp".equals(promptLanguage.nextLine())) isEnglish = false;
 	}
 }
