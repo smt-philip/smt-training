@@ -1,12 +1,12 @@
 
-package com.mann.philip.training.game.guessingv3;
+package com.mann.philip.training.game.guessing;
 
 import java.util.HashMap;
 
 /*******************************************************************************
 *<b>Title:</b> EnglishLanguagePack.java
 *<b>Project:</b> smt-training
-*<b>Description:</b> !!CHANGE ME!!
+*<b>Description:</b> An english language pack for GuessingGame
 *<b>Copyright:</b> Copyright (c) 2022
 *<b>Company:</b> Silicon Mountain Technologies
 @author Philip Mann

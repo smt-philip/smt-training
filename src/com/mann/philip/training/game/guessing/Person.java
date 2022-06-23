@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.game.guessingv3;
+package com.mann.philip.training.game.guessing;
 
 import java.util.HashMap;
 

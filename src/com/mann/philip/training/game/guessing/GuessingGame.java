@@ -1,63 +1,135 @@
 
 package com.mann.philip.training.game.guessing;
 
+import java.util.HashMap;
+import java.util.Scanner;
+
 /*******************************************************************************
 *<b>Title:</b> GuessingGame.java
 *<b>Project:</b> smt-training
-*<b>Description:</b> !!CHANGE ME!!
+*<b>Description:</b> WIP: GuessingGame built during training
 *<b>Copyright:</b> Copyright (c) 2022
 *<b>Company:</b> Silicon Mountain Technologies
 @author Philip Mann
 @version 1.0
-@since Jun 8, 2022
+@since Jun 22, 2022
 *<b>updates:</b>
 *******************************************************************************/
 
 public class GuessingGame {
-	
-	int rightNum = (int) (Math.random() * 10);
-	boolean isGuessRight = false;
-	Player player = new Player();
-	
-	String winnerEn = "Winner Winner, Chicken Dinner";
-	String answerEn = "Your answer: ";
-	String howManyTrysEn = ", took this many tries: ";
-	String correctAnswerIsEn = "Correct answer is: ";
-	String wrongAttemptsEn = "You have guessed wrong, try agaion! *** Attempts: ";
-	
-	String winnerSp = "¡A ganar, a ganar, pollo para cenar!";
-	String answerSp = "Tu respuesta es: ";
-	String howManyTrysSp = ", tuviste tantos intentos: ";
-	String correctAnswerIsSp = "La respuesta correcta es: ";
-	String wrongAttemptsSp = "Has adivinado equivocado, intentar otra vez *** Intentos: ";
+	public static HashMap<String, String> languagePack;
 	/**
-	 * gets player's language from the player instance
-	 * creates a loop while isGuessRight == false
-	 * keeps track of how many trys to win
-	 * once isGuessRight == true, game ends.
+	 * 
+	 * @returns a HashMap of the language pack selected after being set
 	 */
-	public void startGame() {
-		player.getLanguage();
-		while (!isGuessRight) {
-			int guess = player.getGuess();
-			if (guess == rightNum) {
-				isGuessRight = true;
-				if (player.isEnglish) {
-					System.out.println(winnerEn);
-					System.out.println(answerEn + guess + howManyTrysEn + player.howManyTrys);
-					System.out.println(correctAnswerIsEn + rightNum);					
-				} else {
-					System.out.println(winnerSp);
-					System.out.println(answerSp + guess + howManyTrysSp + player.howManyTrys);
-					System.out.println(correctAnswerIsSp + rightNum);
-				}
-			} else {
-				if (player.isEnglish) {
-					System.out.println(wrongAttemptsEn + player.howManyTrys);					
-				} else {
-					System.out.println(wrongAttemptsSp + player.howManyTrys);
-				}
+	public static HashMap<String, String> getLanguagePack() {
+		return languagePack;
+	}
+	/**
+	 * 
+	 * @param languagePack
+	 */
+	public static void setLanguagePack(HashMap<String, String> languagePack) {
+		GuessingGame.languagePack = languagePack;
+	}
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		init();
+		loadPlayerInfo();
+		getInput();
+		startGameIteration();
+		endGame();
+		
+	}
+	/**
+	 * 
+	 * @returns a new instance of GuessingGame
+	 */
+	public static GuessingGame init() {
+		System.out.println("Game has initialized");
+		GuessingGame guessingGame = new GuessingGame();
+		return guessingGame;
+	}
+	
+	/**
+	 * gets input for language & guess
+	 */
+	static int counter = 0;
+	public static String getInput() {
+		String input = "";
+		try (Scanner prompt = new Scanner(System.in)) {
+			while (counter <= 0) {
+				System.out.println("Enter 'en' for english || Ingrese 'mx' para español.");
+				input = prompt.nextLine();
+				loadLanguagePack(input);
+				counter = counter + 1;
 			}
+			if (counter > 0) {
+				System.out.println(getLanguagePack().get("guess"));
+				String response = prompt.nextLine();
+				loadPlayerInfo().setGuess(response);
+			}
+			return input;
 		}
 	}
+	
+	/**
+	 * 
+	 * @param langCode
+	 * @returns a HashMap of the user selected language
+	 */
+	public static HashMap<String, String> loadLanguagePack(String langCode) {
+		Language language = new Language();
+		HashMap<String, String> languagePack = language.initLanguagePack(langCode);
+		setLanguagePack(languagePack);
+		return languagePack;
+	}
+	/**
+	 * 
+	 * @returns an instance of Player
+	 */
+	public static Player loadPlayerInfo() {
+		Player player = new Player();
+		return player;
+	}
+	/**
+	 * starts the game loop
+	 */
+	public static void startGameIteration() {
+		// start the game loop
+		System.out.println("Game has started");
+		int targetNumber = generateTargetNumber();
+		int guess =  Integer.valueOf(loadPlayerInfo().getGuess());
+		while (targetNumber != guess) {
+			getInput();
+			// check to see if they are equal
+			// if equal, end game and ask to play again
+			// if not equal, guess again
+		}
+		System.out.println(loadPlayerInfo().getGuess());
+	}
+	/**
+	 * 
+	 * @returns a number bewteen 1 - 100
+	 */
+	public static int generateTargetNumber() {
+		int targetNumber = (int) (Math.random() * 100);
+		return targetNumber;
+	}
+	/**
+	 * ends game, and ask for a new one. 
+	 */
+	public static void endGame() {
+		System.out.println(getLanguagePack().get("playAgain"));
+	}
+	
+	
+	
+	
+	
+	
+
 }

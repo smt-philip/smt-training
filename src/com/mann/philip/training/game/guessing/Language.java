@@ -1,15 +1,15 @@
 
-package com.mann.philip.training.game.guessingv2;
+package com.mann.philip.training.game.guessing;
 
 import java.util.HashMap;
 
-import com.mann.philip.training.game.guessingv3.EnglishLanguagePack;
-import com.mann.philip.training.game.guessingv3.SpanishLanguagePack;
+import com.mann.philip.training.game.guessing.EnglishLanguagePack;
+import com.mann.philip.training.game.guessing.SpanishLanguagePack;
 
 /*******************************************************************************
 *<b>Title:</b> Language.java
 *<b>Project:</b> smt-training
-*<b>Description:</b> !!CHANGE ME!!
+*<b>Description:</b> Language initializes language packs for GuessingGame
 *<b>Copyright:</b> Copyright (c) 2022
 *<b>Company:</b> Silicon Mountain Technologies
 @author Philip Mann
@@ -31,9 +31,10 @@ public class Language {
 	/**
 	 * 
 	 * @param langCode 
-	 * ie: en, mx, de, fr
+	 * ie: en = english, mx = spanish
+	 * @return 
 	 */
-	public void initLanguagePack(String langCode) {
+	public HashMap<String, String> initLanguagePack(String langCode) {
 		HashMap<String, String > english = new EnglishLanguagePack().generateLanguagePack();
 		HashMap<String, String> spanish = new SpanishLanguagePack().generateLanguagePack();
 		switch (langCode) {
@@ -46,5 +47,6 @@ public class Language {
 		default: 
 			setLanguagePack(english);
 		}
+		return getLanguagePack();
 	}
 }
