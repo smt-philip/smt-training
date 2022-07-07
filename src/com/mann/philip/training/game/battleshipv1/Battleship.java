@@ -20,7 +20,7 @@ public class Battleship {
 	/**
 	 * 
 	 * @param guess
-	 * @returns a String
+	 * @returns a String of hit, miss, or kill
 	 */
 	public String checkYourself(String userGuess) {
 		int guess = Integer.parseInt(userGuess);
