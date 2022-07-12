@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.introtoProgramming.three.homework;
+package com.mann.philip.training.introtoProgramming.three.homework.streams;
 import java.io.*;
 
 /*******************************************************************************
@@ -27,6 +27,6 @@ public class Homework {
 	public static void main(String[] args) throws IOException {
 		// TODO:
 		Object2 object2 = new Object2();
-		object2.readFile();
+		object2.process();
 	}
 }
