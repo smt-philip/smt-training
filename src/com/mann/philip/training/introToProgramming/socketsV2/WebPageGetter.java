@@ -26,7 +26,7 @@ import java.util.Properties;
 /*******************************************************************************
 *<b>Title:</b> WebPageGetter.java
 *<b>Project:</b> smt-training
-*<b>Description:</b> 
+*<b>Description:</b> A class that gets and saves webpage to output dir
 *<b>Copyright:</b> Copyright (c) 2022
 *<b>Company:</b> Silicon Mountain Technologies
 @author Philip Mann
@@ -51,10 +51,14 @@ public class WebPageGetter {
 	private int port;
 	private StringBuilder html;
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		WebPageGetter ex = new WebPageGetter("localhost", 80);
-		ex.getWebPage(ex.getHost(), ex.getPort());
-		ex.saveWebPage(ex.getHost());
+		try {
+			ex.getWebPage(ex.getHost(), ex.getPort());
+			ex.saveWebPage(ex.getHost());
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 	}
 	
 	/**
@@ -77,10 +81,12 @@ public class WebPageGetter {
 	 * @throws IOException
 	 * @returns a string of text from text.properties
 	 */
-	public String getTextProps(String text) throws FileNotFoundException, IOException {
+	public String getTextProps(String text) throws IOException {
 		Properties prop = new Properties();
 		try (InputStream propsFile = new FileInputStream(TEXT)) {
 			prop.load(propsFile);
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
 		}
 		return prop.getProperty(text);
 	}
