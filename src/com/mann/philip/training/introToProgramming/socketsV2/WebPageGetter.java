@@ -36,7 +36,7 @@ public class WebPageGetter {
 	 */
 	public final String OUTPUT_PATH = System.getProperty("user.dir") + "/output/";
 	/**
-	 * Member variables
+	 * instance variables
 	 */
 	private String host;
 	private int port;
@@ -117,7 +117,7 @@ public class WebPageGetter {
 	}
 	
 	/**
-	 * @returns the host, stripped of white space
+	 * @returns the host stripped of white space
 	 */
 	public String getHost() {
 		return host.strip();
