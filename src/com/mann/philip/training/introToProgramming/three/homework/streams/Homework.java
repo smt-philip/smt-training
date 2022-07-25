@@ -1,5 +1,5 @@
 
-package com.mann.philip.training.introtoProgramming.three.homework.streams;
+package com.mann.philip.training.introToProgramming.three.homework.streams;
 import java.io.*;
 
 /*******************************************************************************
