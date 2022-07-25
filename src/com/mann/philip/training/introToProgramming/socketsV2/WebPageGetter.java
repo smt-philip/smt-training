@@ -1,6 +1,9 @@
 
 package com.mann.philip.training.introToProgramming.socketsV2;
 
+/**
+ * java.io
+ */
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.BufferedReader;
@@ -11,13 +14,19 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
+/**
+ * java.net
+ */
 import java.net.Socket;
+/**
+ * java.util
+ */
 import java.util.Properties;
 
 /*******************************************************************************
 *<b>Title:</b> WebPageGetter.java
 *<b>Project:</b> smt-training
-*<b>Description:</b> !!CHANGE ME!!
+*<b>Description:</b> 
 *<b>Copyright:</b> Copyright (c) 2022
 *<b>Company:</b> Silicon Mountain Technologies
 @author Philip Mann
@@ -42,12 +51,18 @@ public class WebPageGetter {
 	private int port;
 	private StringBuilder html;
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		WebPageGetter ex = new WebPageGetter("localhost", 80);
 		ex.getWebPage(ex.getHost(), ex.getPort());
 		ex.saveWebPage(ex.getHost());
 	}
 	
+	/**
+	 * takes in a host and port 
+	 * used to create a socket
+	 * @param hostName
+	 * @param portNum
+	 */
 	public WebPageGetter(String hostName, int portNum) {
 		setHost(hostName);
 		setPort(portNum);
@@ -56,20 +71,16 @@ public class WebPageGetter {
 	}
 	
 	/**
-	 * to log to the console
+	 * used to log to the console
 	 * @param Text
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 * @returns a string of text from text.properties
 	 */
-	public String getTextProps(String text) {
+	public String getTextProps(String text) throws FileNotFoundException, IOException {
 		Properties prop = new Properties();
 		try (InputStream propsFile = new FileInputStream(TEXT)) {
 			prop.load(propsFile);
-		} catch (FileNotFoundException e){
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		return prop.getProperty(text);
 	}
@@ -80,8 +91,9 @@ public class WebPageGetter {
 	 * 
 	 * @param hostName
 	 * @param portNum
+	 * @throws IOException 
 	 */
-	public void getWebPage(String hostName, int portNum) {
+	public void getWebPage(String hostName, int portNum) throws IOException {
 		StringBuilder htmlFromHost = new StringBuilder();
 		try(Socket socket = new Socket(hostName, portNum)) {
 			System.out.println(getTextProps("fetching"));
@@ -97,22 +109,19 @@ public class WebPageGetter {
 			out.flush();
 			out.close();
 			socket.close();
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		setHtml(htmlFromHost);
 	}
 	
 	/**
 	 * writes var html to an output file
+	 * @throws IOException 
 	 */
-	public void saveWebPage(String hostName) {
+	public void saveWebPage(String hostName) throws IOException {
 		File file = new File(OUTPUT_PATH + hostName + ".html");
 		try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
 			writer.append(getHtml());
 			System.out.println(getTextProps("success"));
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 	}
 	
@@ -124,7 +133,7 @@ public class WebPageGetter {
 	}
 
 	/**
-	 * @param host the host to set
+	 * @param host
 	 */
 	public void setHost(String host) {
 		this.host = host;
@@ -138,7 +147,7 @@ public class WebPageGetter {
 	}
 
 	/**
-	 * @param port the port to set
+	 * @param port
 	 */
 	public void setPort(int port) {
 		this.port = port;
@@ -152,7 +161,7 @@ public class WebPageGetter {
 	}
 
 	/**
-	 * @param html the html to set
+	 * @param html
 	 */
 	public void setHtml(StringBuilder html) {
 		this.html = html;
